@@ -49,7 +49,7 @@ django-ttag==3.0
 djangocms-admin-style==2.0.2
 djangocms-youtube==0.2.1
 dnspython==2.2.1
-duplicity==0.8.12.0
+# duplicity==0.8.12.0
 easy-thumbnails==2.8
 EasyProcess==0.3
 ecdsa==0.17.0
