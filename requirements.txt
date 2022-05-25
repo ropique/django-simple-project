@@ -3,7 +3,6 @@ allure-pytest==2.9.43
 allure-python-commons==2.9.43
 anyio==3.6.1
 Appium-Python-Client==1.1.0
-apturl==0.5.2
 asgiref==3.4.1
 attrs==20.3.0
 backports.zoneinfo==0.2.1
