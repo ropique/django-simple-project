@@ -156,7 +156,7 @@ tinycss2==1.1.1
 toml==0.10.2
 typing-extensions==4.2.0
 # ubuntu-advantage-tools==27.7
-ubuntu-drivers-common==0.0.0
+# ubuntu-drivers-common==0.0.0
 ufw==0.36
 ujson==5.2.0
 unattended-upgrades==0.1
