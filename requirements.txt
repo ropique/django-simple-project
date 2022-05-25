@@ -59,7 +59,7 @@ execnet==1.9.0
 fastapi==0.78.0
 fasteners==0.14.1
 future==0.18.2
-google-api-python-client==1.7.11
+# google-api-python-client==1.7.11
 google-auth==1.5.1
 google-auth-httplib2==0.0.3
 h11==0.13.0
@@ -161,7 +161,7 @@ typing-extensions==4.2.0
 ujson==5.2.0
 # unattended-upgrades==0.1
 Unidecode==1.1.2
-uritemplate==0.6
+# uritemplate==0.6
 urllib3==1.25.8
 URLObject==2.4.3
 # usb-creator==0.3.7
