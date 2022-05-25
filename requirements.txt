@@ -126,7 +126,7 @@ pytest-metadata==1.11.0
 pytest-xdist==2.1.0
 # python-apt==2.0.0+ubuntu0.20.4.7
 python-dateutil==2.8.2
-python-debian===0.1.36ubuntu1
+# python-debian===0.1.36ubuntu1
 python-dotenv==0.20.0
 python-jose==3.3.0
 python-multipart==0.0.5
