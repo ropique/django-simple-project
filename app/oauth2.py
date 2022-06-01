@@ -4,6 +4,7 @@ from sqlalchemy.orm import Session
 
 from .config import settings
 
+
 from requests import Session
 from . import schemas, database, models
 from fastapi import Depends, status, HTTPException
