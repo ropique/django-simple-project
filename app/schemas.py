@@ -3,7 +3,7 @@ from typing import Optional
 from pydantic import BaseModel, EmailStr, conint 
 from datetime import datetime
 
-from app.database import Base
+from .database import Base
 
 
 class PostBase(BaseModel):
