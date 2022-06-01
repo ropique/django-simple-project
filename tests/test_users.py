@@ -1,9 +1,9 @@
 import pytest
 from jose import jwt
-from app import schemas
+from app.main import app
+from fastapi.testclient import TestClient
 
-from config import settings
-
+client = TestClient(app)
 
 def test_root(client):
 
@@ -11,5 +11,3 @@ def test_root(client):
      print(res.json().get('message'))
      assert res.json().get('message') == 'Hello World'
      assert res.status_code == 200
-
-
