@@ -28,5 +28,5 @@ app.include_router(vote.router)
 
 @app.get("/")
 def root():
-    return {"message": "Welcome to our QA engineering fastapi: In 'docs' you can see Documentation (c) Anush Avanesyan"}
+    return {"message": "Welcome to our QA engineering fastapi: In '/docs' you can see Documentation (c) Anush Avanesyan"}
 
