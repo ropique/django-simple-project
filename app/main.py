@@ -2,7 +2,7 @@ from unicodedata import category
 from fastapi import FastAPI
 from pydantic import BaseModel, BaseSettings
 from fastapi.middleware.cors import CORSMiddleware
-from app.routers import posts, user, auth, vote
+from .routers import posts, user, auth, vote
 from .database import engine,  get_db, SessionLocal
 from sqlalchemy.orm import Session 
 from . import models, schemas, utils
