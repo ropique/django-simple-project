@@ -1,4 +1,3 @@
-from re import S
 from typing import Optional
 from pydantic import BaseModel, EmailStr, conint 
 from datetime import datetime
@@ -17,8 +16,7 @@ class UserOut(BaseModel):
     company: str
     email: EmailStr 
     created_at: datetime 
-
-       
+      
 
     class Config:
         orm_mode = True  

@@ -1,16 +1,11 @@
-# from cgitb import text
-# from email.policy import default
-# from xmlrpc.client import Boolean
-# from attr import Factory
-
-from csv import unregister_dialect
+from .database import Base 
 from email.policy import default
 from sqlalchemy import  Column, ForeignKey, Integer, String, Boolean
 from sqlalchemy.sql.expression import text 
 from sqlalchemy.sql.sqltypes import TIMESTAMP 
 from sqlalchemy.orm import relationship
 
-from .database import Base 
+
 
 class Post(Base):
     __tablename__ = "posts"
