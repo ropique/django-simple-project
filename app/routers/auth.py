@@ -1,7 +1,7 @@
-from fastapi import FastAPI, Response, status, HTTPException, Depends, APIRouter, Response 
+from fastapi import status, HTTPException, Depends, APIRouter, Response 
 from sqlalchemy.orm import  Session 
 from fastapi.security.oauth2 import OAuth2PasswordRequestForm 
-from .. import database, schemas, models,utils, oauth2
+from .. import database, schemas, models, utils, oauth2
 
 
 router = APIRouter(
@@ -20,7 +20,8 @@ def login(user_credentials: OAuth2PasswordRequestForm = Depends(), db: Session =
         raise HTTPException(status_code= status.HTTP_403_FORBIDDEN, detail = f"Email or password is not correct")
 
     if not utils.verify(user_credentials.password, user.password):
-        raise HTTPException(status_code= status.HTTP_403_FORBIDDEN, detail = f"email or password is not correct")
+        raise HTTPException(
+            status_code= status.HTTP_403_FORBIDDEN, detail = f"email or password is not correct")
 
     access_token = oauth2.create_access_token(data = {"user_id": user.id})
 
