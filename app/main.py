@@ -8,7 +8,7 @@ from sqlalchemy.orm import Session
 from . import models, schemas, utils
 
 
-models.Base.metadata.create_all(bind=engine)
+
 
 app = FastAPI()
 origins = ["*"]

@@ -13,7 +13,7 @@ router = APIRouter(
 )
 
 @router.get("/", response_model= List[schemas.PostOut])
-def get_posts(db: Session = Depends(get_db), current_user: int = Depends(oauth2.get_current_user), 
+def get_posts(db: Session = Depends(get_db), 
 limit: int = 10, skip: int = 0, search: Optional[str] = ""):
     # cursor.execute("""SELECT * FROM posts """)
     # posts = cursor.fetchall()
@@ -40,7 +40,7 @@ current_user: int = Depends(oauth2.get_current_user)):
  
 
 @router.get("/{id}", response_model= schemas.PostOut)
-def get_post(id: int, db: Session = Depends(get_db), current_user: int = Depends(oauth2.get_current_user)):
+def get_post(id: int, db: Session = Depends(get_db)):
     post = db.query(models.Post, func.count(models.Votes.post_id).label("votes")).join(models.Votes, models.Votes.post_id == models.Post.id, 
     isouter = True).group_by(models.Post.id).filter(models.Post.id == id).first()
       
