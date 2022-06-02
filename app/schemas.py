@@ -1,7 +1,7 @@
 from typing import Optional
-from pydantic import BaseModel, EmailStr, conint 
+from pydantic import BaseModel, EmailStr
 from datetime import datetime
-
+from pydantic.types import conint
 from .database import Base
 
 
@@ -10,6 +10,9 @@ class PostBase(BaseModel):
     content: str
     category: str
     published: bool = True 
+
+class PostCreate(PostBase):
+    pass
 
 class UserOut(BaseModel):
     id: int
@@ -21,8 +24,6 @@ class UserOut(BaseModel):
     class Config:
         orm_mode = True  
 
-class PostCreate(PostBase):
-    pass 
 
 class Post(PostBase):
     id: int
