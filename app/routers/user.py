@@ -45,7 +45,26 @@ def get_user(id: int, db: Session = Depends(get_db)):
 
     return user     
 
+@router.delete("/{id}", status_code= status.HTTP_204_NO_CONTENT)
+def delete_user(id: int, db: Session = Depends(get_db), current_user: int = Depends(oauth2.get_current_user)):
 
+    # cursor.execute("""DELETE FROM Posts WHERE id = %s returning *""", (str(id),))
+    # Delated_post = cursor.fetchone()
+    # conn.commit()
+
+    user_query  = db.query(models.User).filter(models.User.id == id)
+    user = user_query.first()
+    
+    if user == None:
+        raise HTTPException(status_code= status.HTTP_404_NOT_FOUND, detail = f"User with id: {id} does not exist")
+  
+    if 1!= current_user.id:
+        raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, 
+        detail = f"You can not delete users. Please contact to admin")
+    user_query.delete(synchronize_session= False)
+
+    db.commit()
+    return Response(status_code= status.HTTP_204_NO_CONTENT)
 
 
     

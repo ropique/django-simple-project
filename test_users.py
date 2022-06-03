@@ -1,5 +1,6 @@
-from fastapi import FastAPI
-import pytest
+from sqlalchemy import create_engine 
+from sqlalchemy.orm import sessionmaker
+from sqlalchemy.ext.declarative import declarative_base
 from app.main import app
 from fastapi.testclient import TestClient
 from jose import jwt
@@ -21,9 +22,9 @@ def test_root():
 
 def test_create_user():
     res = client.post(
-        "/users/", json={"email": "test@gmail.com", "password": "password123", "company": "IM"})
+        "/users/", json={"email": "test53@gmail.com", "password": "password123", "company": "IM"})
     new_user = schemas.UserOut(**res.json())
-    assert new_user.email == "test@gmail.com"
+    assert new_user.email == "test53@gmail.com"
     assert res.status_code == 201
 
 
