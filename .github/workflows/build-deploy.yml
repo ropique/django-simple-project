@@ -2,9 +2,32 @@ name: Build and Deploy Code
 
 on: [push, pull_request]
 
-
+  
 jobs:
   job1: 
+    env:
+     DATABASE_HOSTNAME: localhost
+     DATABASE_PORTP: 5432
+     DATABASE_PASSWORD: Anush123~
+     DATABASE_NAME: fastapi
+     DATABASE_USERNAME: postgres
+     SECRET_KEY: 44frt@Ey6sferr77779rwrw6474646f78sf787e97w9f9e7f97s9f7s9f7s9f7s9f7979sf79fsfsfdf
+     ALGORITHM: HS256
+     ACCESS_TOKEN_EXPIRE_MINUTES: 600 
+    services:
+       postgres:
+          image: postgres
+          env: 
+            POSTGRES_PASSWORD: Anush123~
+            POSTGRES_DB: fastapi
+          ports:
+            - 5432:5432
+          options:
+            --health-cmd pg_isready
+            --health-interval 10s
+            --health-timeout 5s
+            --health-retries 5   
+
     runs-on: ubuntu-latest
     steps:
        - name: pulling git repo
@@ -16,10 +39,14 @@ jobs:
        - name: update pip
          run: python -m pip install --upgrade pip 
        - name: install all dependencies
-         run: pip install -r requirements.txt       
+         run: pip install -r requirements.txt    
+       - name: test with pytest
+         run: 
+          pip install pytest
+          pytest   
 
 
 
-
+   
  
         
