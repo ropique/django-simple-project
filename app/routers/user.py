@@ -1,3 +1,4 @@
+from enum import unique
 from fastapi import FastAPI, Response, status, HTTPException, Depends, APIRouter
 from .. import models, schemas, utils, oauth2
 from sqlalchemy.orm import  Session 
@@ -19,6 +20,9 @@ def create_user(user: schemas.UserCreate, db: Session = Depends(get_db)):
     db.add(new_user)
     db.commit()
     db.refresh(new_user)
+
+    if user.email is not unique:
+        raise HTTPException(status_code= status.HTTP_404_NOT_FOUND, detail = f"User with {user.email} already exist")
 
     return new_user 
 
