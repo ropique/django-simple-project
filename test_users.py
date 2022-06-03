@@ -5,6 +5,7 @@ from fastapi.testclient import TestClient
 from jose import jwt
 from app import schemas
 from app.config import settings
+from app.schemas import UserOut
 
 client = TestClient(app)
 
