@@ -12,5 +12,5 @@ def test_root():
 
      res = client.get("/")
      print(res.json().get('message'))
-     assert res.json().get('message') == "Welcome to our QA engineering fastapi: In '/docs' you can see Documentation (c) Anush Avanesyan"
+     assert res.json().get('message') == "Hi! Welcome to fastapi application: In '/docs' you can see Documentation (c) Anush Avanesyan"
      assert res.status_code == 200
