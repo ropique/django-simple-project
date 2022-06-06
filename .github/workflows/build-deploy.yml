@@ -45,7 +45,7 @@ jobs:
        - name: test with pytest
          run: 
           pip install pytest
-          pytest   
+          pytest test_users.py 
 
   deploy: 
     runs-on: ubuntu-latest
