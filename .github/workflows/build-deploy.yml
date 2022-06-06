@@ -11,7 +11,7 @@ jobs:
      DATABASE_HOSTNAME: localhost
      DATABASE_PORTP: 5432
      DATABASE_PASSWORD: ${{ secrets.DATABASE_PASSWORD }}
-     DATABASE_NAME: ${{ secrts.DATABASE_NAME }}
+     DATABASE_NAME: ${{ secrets.DATABASE_NAME }}
      DATABASE_USERNAME: postgres
      SECRET_KEY: ${{ secrets.SECRET_KEY }}
      ALGORITHM: HS256
