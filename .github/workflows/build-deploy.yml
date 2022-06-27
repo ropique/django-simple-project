@@ -4,10 +4,8 @@ on: [push, pull_request]
 
   
 jobs:
-  
-
-    runs-on: ubuntu-latest
-    steps:
+  runs-on: ubuntu-latest
+  steps:
        - name: pulling git repo
          uses: actions/checkout@v2
        - name: Install python version 3.9
