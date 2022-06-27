@@ -1,1 +1,1 @@
-web: gunicorn Django_project.wsgi 
+web: gunicorn Fastapi.wsgi 
