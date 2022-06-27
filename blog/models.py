@@ -9,7 +9,7 @@ from django.urls import reverse
 class Post(models.Model):
     title = models.CharField(max_length= 250)
     category = models.CharField(max_length= 250, default="abbreviations")
-    content = models.TextField(max_length= 1000)
+    content = models.TextField(max_length= 900)
     date_posted = models.DateTimeField(default= timezone.now)
     author = models.ForeignKey(User, on_delete = models.CASCADE, blank=True, null=True)
 
