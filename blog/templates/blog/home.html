@@ -11,7 +11,13 @@
             <h2><a class="article-title" href="{% url 'post-detail' post.id %}">{{ post.title }}</a></h2>
             <small class="text-muted">{{ post.date_posted }}</small>  
             <h5 class="text-muted"> Category: {{ post.category }}</h5>  <hr/>
-            <h4 class="article-content">{{ post.content }}</h4>
+            
+
+            <div class = "post_body">
+              {{ post.content|safe|truncatewords:"100"|linebreaks }}
+              <a href="{% url 'post-detail' post.id %}">Read more</a>
+          </div>
+
           </div>
         </article>
     {% endfor %}
