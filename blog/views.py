@@ -58,7 +58,7 @@ def search_res(request):
         # searched = request.GET.get('searched', None)
         # searched = request.GET.get("searched")
 
-        venues = Post.objects.filter(Q(title__contains = searched)|Q(content__contains = searched))
+        venues = Post.objects.filter(Q(title__contains = searched)|Q(content__contains = searched)|Q(category__contains = searched))
 
 
 
