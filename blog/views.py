@@ -86,7 +86,7 @@ def PostList(request):
         return Response(serializer.data, status = status.HTTP_200_OK)
 
     if request.method == 'POST':
-        serializer = PostSerializer(data = request.data)
+        serializer = PostSerializer(data = request.data,  many = True)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status = status.HTTP_201_CREATED)
