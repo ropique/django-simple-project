@@ -17,23 +17,20 @@
 
     <title> {% block title %} Django blog {% endblock %}</title>
 
-    <!-- {% if title %}
-        <title> {{ title }}</title>
-    {% else %}
-        <title>Django project </title>
-    {% endif %}    -->
     
 </head>   
 <body>
     <header class="site-header">
         <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
           <div class="container">
-            <a class="navbar-brand mr-4" href="{% url 'blog-home' %}">Home</a> 
+            <div class="collapse navbar-collapse" id="navbarToggle"> 
+            
             
  
-            <div class="collapse navbar-collapse" id="navbarToggle"> 
-              <a  href="{% url 'blog-home' %}">  <img src="/static/blog/logo.png" alt="Home" id ="logo" width = "30%";  height = "auto"> </a>
-              <!-- <div class="navbar-nav"> -->
+            
+                <a  href="{% url 'blog-home' %}">  <img src="/static/blog/logo.png"  id ="logo"> </a>
+                <a class="navbar-brand mr-4" href="{% url 'blog-home' %}">Home</a> 
+              
                 {%  if user.is_authenticated %}
                 <a class="navbar-brand mr-4" href="{% url 'add_post' %}">New post</a>
                   <a class="navbar-brand mr-4" href="{% url 'logout' %}">Logout</a>
