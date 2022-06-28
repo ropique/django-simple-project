@@ -2,6 +2,9 @@ from django.shortcuts import render, get_object_or_404
 from itsdangerous import Serializer
 from yaml import serialize
 from .models import Post
+from django.shortcuts import render
+from django.db.models import Q
+from django.urls import reverse_lazy, reverse
 from django.http import HttpResponse, JsonResponse
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
@@ -47,6 +50,23 @@ class PostCreateView(CreateView):
 
 def about(request):
     return render(request, 'blog/about.html', {'title': 'QA engineering'})
+
+def search_res(request):
+    if request.method == "GET":
+        searched = request.GET['s']
+
+        # searched = request.GET.get('searched', None)
+        # searched = request.GET.get("searched")
+
+        venues = Post.objects.filter(Q(title__contains = searched)|Q(content__contains = searched))
+
+
+
+
+        return render(request, 'blog/search_res.html', {'s': searched, 'venues': venues})
+
+    else:
+        return render(request, 'blog/search_res.html')
 
 # class PostList(APIView):
 #     def get(self, request):
