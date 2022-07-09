@@ -28,7 +28,7 @@
             
  
             
-                <a  href="{% url 'blog-home' %}">  <img src="/static/blog/logo.png"  id ="logo"> </a>
+                <!-- <a  href="{% url 'blog-home' %}">  <img src="/static/blog/logo.png"  id ="logo"> </a> -->
                 <a class="navbar-brand mr-4" href="{% url 'blog-home' %}">Home</a> 
               
                 {%  if user.is_authenticated %}
@@ -36,8 +36,8 @@
                   <a class="navbar-brand mr-4" href="{% url 'logout' %}">Logout</a>
                   <!-- <a class="nav-item nav-link" href="{% url 'profile' %}">Profile</a> -->
                 {% else %}
-                  <a class="navbar-brand mr-4" href="{% url 'login' %}">Login</a>
-                  
+                  <a class="navbar-brand mr-4" href="{% url 'login' %}"></a>
+                  <a class="navbar-brand mr-4" href="{% url 'about' %}"></a>
                   <a class="navbar-brand mr-4" href="{% url 'register' %}">Register</a>
                 {% endif %}
               </div>
